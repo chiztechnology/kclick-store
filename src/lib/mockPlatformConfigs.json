@@ -1,0 +1,191 @@
+{
+  "platform_configs": {
+    "general": {
+      "platform_name": "Kclick Marketplace",
+      "platform_email": "support@kclick.com",
+      "platform_phone": "+243 123 456 789",
+      "support_url": "https://help.kclick.com",
+      "terms_url": "https://kclick.com/terms",
+      "privacy_url": "https://kclick.com/privacy"
+    },
+    "commission": {
+      "default_rate": 15.0,
+      "minimum_rate": 5.0,
+      "maximum_rate": 30.0,
+      "category_rates": {
+        "electronics": 12.0,
+        "fashion": 18.0,
+        "food": 10.0,
+        "beauty": 20.0,
+        "home": 15.0
+      },
+      "volume_discounts": [
+        {
+          "min_sales": 0,
+          "max_sales": 100000,
+          "rate": 15.0
+        },
+        {
+          "min_sales": 100000,
+          "max_sales": 500000,
+          "rate": 12.0
+        },
+        {
+          "min_sales": 500000,
+          "max_sales": null,
+          "rate": 10.0
+        }
+      ]
+    },
+    "shipping": {
+      "free_shipping_threshold": 50000,
+      "default_shipping_fee": 5000,
+      "express_shipping_fee": 15000,
+      "international_shipping_enabled": true,
+      "shipping_zones": [
+        {
+          "name": "Kinshasa",
+          "base_fee": 3000,
+          "per_km_fee": 100,
+          "free_threshold": 50000
+        },
+        {
+          "name": "Lubumbashi",
+          "base_fee": 5000,
+          "per_km_fee": 150,
+          "free_threshold": 75000
+        },
+        {
+          "name": "Other Cities",
+          "base_fee": 7000,
+          "per_km_fee": 200,
+          "free_threshold": 100000
+        }
+      ],
+      "delivery_time_estimates": {
+        "standard": "3-5 business days",
+        "express": "1-2 business days",
+        "international": "7-14 business days"
+      }
+    },
+    "payment": {
+      "supported_methods": ["mobile_money", "bank_card", "cash_on_delivery"],
+      "mobile_money_providers": ["M-Pesa", "Orange Money", "Airtel Money"],
+      "payment_processing_fee": 2.5,
+      "cash_on_delivery_fee": 2000,
+      "minimum_order_amount": 1000,
+      "maximum_order_amount": 10000000
+    },
+    "tax": {
+      "enabled": true,
+      "default_rate": 16.0,
+      "included_in_price": true,
+      "category_exemptions": ["food", "books", "education"],
+      "region_rates": {
+        "kinshasa": 16.0,
+        "lubumbashi": 16.0,
+        "other": 16.0
+      }
+    },
+    "currency": {
+      "primary_currency": "CDF",
+      "secondary_currencies": ["USD", "EUR"],
+      "auto_conversion_enabled": true,
+      "update_frequency": "daily",
+      "markup_percentage": 1.5
+    },
+    "store_settings": {
+      "minimum_products_to_activate": 5,
+      "require_business_verification": true,
+      "auto_approve_products": false,
+      "max_products_per_store": 10000,
+      "allow_store_customization": true,
+      "require_return_policy": true,
+      "minimum_store_rating": 3.0
+    },
+    "product_settings": {
+      "max_images_per_product": 8,
+      "max_variants_per_product": 50,
+      "require_barcode": false,
+      "auto_generate_sku": true,
+      "allow_pre_orders": true,
+      "max_discount_percentage": 90,
+      "minimum_product_price": 500
+    },
+    "order_settings": {
+      "auto_cancel_unpaid_after_hours": 48,
+      "allow_order_cancellation": true,
+      "cancellation_window_hours": 2,
+      "require_delivery_confirmation": true,
+      "auto_complete_after_delivery_days": 7,
+      "allow_partial_refunds": true,
+      "refund_processing_days": 5
+    },
+    "review_settings": {
+      "enable_reviews": true,
+      "require_purchase_to_review": true,
+      "allow_anonymous_reviews": false,
+      "moderation_enabled": true,
+      "minimum_review_length": 10,
+      "allow_photo_reviews": true,
+      "max_review_photos": 5
+    },
+    "notification_settings": {
+      "email_notifications": true,
+      "sms_notifications": true,
+      "push_notifications": true,
+      "order_updates": true,
+      "promotional_emails": true,
+      "newsletter_enabled": true
+    },
+    "search_and_discovery": {
+      "enable_ai_recommendations": true,
+      "trending_products_count": 20,
+      "featured_products_count": 10,
+      "max_search_results": 100,
+      "enable_autocomplete": true,
+      "search_suggestions_count": 5
+    },
+    "security": {
+      "enable_two_factor_auth": false,
+      "session_timeout_minutes": 60,
+      "max_login_attempts": 5,
+      "account_lockout_duration_minutes": 30,
+      "password_min_length": 8,
+      "require_strong_password": true
+    },
+    "maintenance": {
+      "maintenance_mode": false,
+      "maintenance_message": "We're currently performing scheduled maintenance. We'll be back shortly!",
+      "maintenance_start": null,
+      "maintenance_end": null,
+      "allowed_ips": []
+    },
+    "features": {
+      "enable_flash_sales": true,
+      "enable_campaigns": true,
+      "enable_vouchers": true,
+      "enable_loyalty_program": false,
+      "enable_referral_program": false,
+      "enable_store_subscriptions": false,
+      "enable_bulk_ordering": true,
+      "enable_wishlist": true
+    },
+    "analytics": {
+      "enable_tracking": true,
+      "google_analytics_id": "GA-XXXXXXXXX",
+      "facebook_pixel_id": "FB-XXXXXXXXX",
+      "track_conversions": true,
+      "track_user_behavior": true
+    },
+    "limits": {
+      "max_cart_items": 50,
+      "max_addresses_per_user": 10,
+      "max_favorites_per_user": 500,
+      "api_rate_limit_per_minute": 60,
+      "max_upload_size_mb": 10
+    }
+  },
+  "last_updated": "2026-03-02T10:30:00Z",
+  "updated_by": "admin@kclick.com"
+}
