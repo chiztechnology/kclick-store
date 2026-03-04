@@ -27,16 +27,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-        path: '/welcome',
-        element: <LandingPage />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: '/confirm-account-conversion',
-        element: <ConfirmAccountConversionPage />,
-        errorElement: <ErrorPage />,
-      },
-  {
     path: '/business/portal',
     element: <BusinessPortalPage />,
     errorElement: <ErrorPage />,
@@ -94,6 +84,16 @@ const router = createBrowserRouter([
   {
     path: '/business/store/:storeId/products/bulk',
     element: <BulkProductPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/welcome',
+    element: <LandingPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/confirm-account-conversion',
+    element: <ConfirmAccountConversionPage />,
     errorElement: <ErrorPage />,
   },
   {

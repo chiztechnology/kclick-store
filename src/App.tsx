@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <FeedbackBanner />
-
       <main className="flex-1">
         <ScrollToTop />
         <Outlet />

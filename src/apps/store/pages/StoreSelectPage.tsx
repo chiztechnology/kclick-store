@@ -4,60 +4,6 @@ import { Store, MapPin, Star, Package, ChevronRight, Search, LogOut, BadgeCheck 
 import { storesService } from '../../../lib/api';
 import type { Store as StoreType } from '../../../types';
 
-const MOCK_STORES: StoreType[] = [
-  {
-    id: 'store-1',
-    name: 'TechZone Kinshasa',
-    description: 'Electronique et gadgets',
-    logo_url: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?w=200',
-    cover_url: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?w=800',
-    address: '123 Avenue Kasa-Vubu',
-    city: 'Kinshasa',
-    phone: '+243 81 234 5678',
-    email: 'contact@techzone.cd',
-    rating: 4.8,
-    review_count: 234,
-    product_count: 156,
-    is_active: true,
-    is_verified: true,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'store-2',
-    name: 'Fashion Elite',
-    description: 'Mode et accessoires',
-    logo_url: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?w=200',
-    cover_url: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?w=800',
-    address: '45 Boulevard 30 Juin',
-    city: 'Kinshasa',
-    phone: '+243 99 876 5432',
-    email: 'info@fashionelite.cd',
-    rating: 4.6,
-    review_count: 189,
-    product_count: 312,
-    is_active: true,
-    is_verified: true,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'store-3',
-    name: 'Home & Living',
-    description: 'Maison et decoration',
-    logo_url: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=200',
-    cover_url: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=800',
-    address: '78 Rue des Commercants',
-    city: 'Lubumbashi',
-    phone: '+243 82 111 2233',
-    email: 'contact@homeliving.cd',
-    rating: 4.4,
-    review_count: 98,
-    product_count: 89,
-    is_active: true,
-    is_verified: false,
-    created_at: new Date().toISOString()
-  }
-];
-
 export default function StoreSelectPage() {
   const navigate = useNavigate();
   const [stores, setStores] = useState<StoreType[]>([]);
@@ -80,12 +26,9 @@ export default function StoreSelectPage() {
         // Filter only active stores
         const activeStores = result.data.filter((store: any) => store.is_active);
         setStores(activeStores);
-      } else {
-        setStores(MOCK_STORES);
-      }
+      } 
     } catch (error) {
       console.error('Error loading stores:', error);
-      setStores(MOCK_STORES);
     } finally {
       setLoading(false);
     }
@@ -148,9 +91,23 @@ export default function StoreSelectPage() {
               <button
                 key={store.id}
                 onClick={() => handleSelectStore(store.id)}
-                className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/5"
+                className="group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/5 overflow-hidden"
               >
-                <div className="flex items-center gap-4">
+                {/* Background cover image */}
+                {store.cover_image_url && (
+                  <>
+                    <div
+                      className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity"
+                      style={{
+                        backgroundImage: `url(${store.cover_image_url})`
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/60" />
+                  </>
+                )}
+                
+                {/* Content */}
+                <div className="relative z-10 flex items-center gap-4">
                   <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-gray-800 shrink-0">
                     {store.logo_url ? (
                       <img

@@ -220,8 +220,8 @@ export default function BusinessPortalPage() {
                     onClick={() => handleStoreClick(store)}
                     className="relative h-32 bg-gradient-to-br from-gray-100 to-gray-200"
                   >
-                    {store.cover_url && (
-                      <img src={store.cover_url} alt="" className="w-full h-full object-cover" />
+                    {store.cover_image_url && (
+                      <img src={store.cover_image_url} alt="" className="w-full h-full object-cover" />
                     )}
                     <div className="absolute top-3 right-3">
                       <span className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full border ${statusCfg.bg} ${statusCfg.color}`}>
