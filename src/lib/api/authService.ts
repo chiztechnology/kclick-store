@@ -120,4 +120,7 @@ export const authService = {
     }
     return result;
   },
+  convertToSeller: async (email: string) => {
+    return apiClient.post<void>('/auth/convert-to-seller', { email });
+  }
 };

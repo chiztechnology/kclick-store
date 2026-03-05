@@ -1,9 +1,23 @@
 import { Link } from 'react-router-dom';
 import { Store, ArrowLeft, AlertCircle, CheckCircle, ArrowRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import React from 'react';
 
 export default function ConfirmAccountConversionPage() {
-  const { user, profile } = useAuth();
+  const { user, profile, convertToSeller } = useAuth();
+  const [loading, setLoading] = React.useState(false);
+
+
+  const handleStartConversion = async () => {
+    if (!user) return;
+    setLoading(true);
+    const { error } = await convertToSeller(user.email);
+    if(error) {
+      alert('Une erreur est survenue lors de la conversion de votre compte. Veuillez réessayer plus tard.');
+    }
+    setLoading(false);
+  }
+
 
   const isLoggedIn = !!user;
 
@@ -80,6 +94,8 @@ export default function ConfirmAccountConversionPage() {
                 </div>
 
                 <button
+                  onClick={handleStartConversion}
+                  disabled={loading}
                   className="w-full bg-kclick-orange text-white py-4 rounded-2xl font-bold text-lg hover:shadow-glow-orange transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-3"
                 >
                   Confirmer la conversion en compte vendeur

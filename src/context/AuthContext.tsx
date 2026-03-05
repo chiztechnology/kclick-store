@@ -21,6 +21,7 @@ interface AuthContextType {
   isStoreManager: boolean;
   isCustomer: boolean;
   canAccessStore: boolean;
+  convertToSeller: (email: string) => Promise<{ error: any }>;
   signUp: (email: string, password: string, fullName?: string) => Promise<{ error: any }>;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
   signInWithPhone: (phone: string) => Promise<{ error: any }>;
@@ -199,6 +200,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const convertToSeller = async (email: string) => {
+    if (!user) return { error: new Error('Not authenticated') };
+    try {
+      const { error } = await authService.convertToSeller(email);
+      if (error) return { error };  
+      await loadProfile(user.id);
+      return { error: null };
+    } catch (error) {
+      return { error };
+    } 
+  };
+
   const isStoreManager = useMemo(() => roleUtils.isStoreManager(profile), [profile]);
   const isCustomer = useMemo(() => roleUtils.isCustomer(profile), [profile]);
   const canAccessStore = useMemo(() => roleUtils.canAccessStore(profile), [profile]);
@@ -213,6 +226,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isStoreManager,
         isCustomer,
         canAccessStore,
+          convertToSeller,
         signUp,
         signIn,
         signInWithPhone,
