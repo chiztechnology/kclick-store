@@ -426,11 +426,11 @@ function StoreReviewModal({
               Envoyez vos documents par email pour accélérer la validation :
             </p>
             <a
-              href={`mailto:admin@kclick.co?subject=Documents KYC — ${encodeURIComponent(store.name)}`}
+              href={`mailto:ecommerce@kennysinternational.com?subject=Documents KYC — ${encodeURIComponent(store.name)}`}
               className="flex items-center gap-2 text-sm font-semibold text-kclick-orange hover:underline"
             >
               <Mail size={14} />
-              admin@kclick.co
+              ecommerce@kennysinternational.com
             </a>
           </div>
 

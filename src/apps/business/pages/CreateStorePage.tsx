@@ -124,7 +124,7 @@ export default function CreateStorePage() {
                 </div>
               </div>
               <a
-                href="mailto:admin@kclick.co?subject=Documents KYC — Boutique"
+                href="mailto:ecommerce@kennysinternational.com?subject=Documents KYC — Boutique"
                 className="flex items-center gap-3 p-4 bg-gray-50 border border-gray-200 rounded-xl hover:border-kclick-orange hover:bg-orange-50 transition-all group"
               >
                 <div className="w-10 h-10 bg-kclick-orange/10 rounded-xl flex items-center justify-center group-hover:bg-kclick-orange/20">
@@ -132,7 +132,7 @@ export default function CreateStorePage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 text-sm">Envoyer les documents</p>
-                  <p className="text-xs text-gray-500">admin@kclick.co</p>
+                  <p className="text-xs text-gray-500">ecommerce@kennysinternational.com</p>
                 </div>
               </a>
             </div>
@@ -329,11 +329,11 @@ export default function CreateStorePage() {
                     Après soumission, envoyez vos documents à :
                   </p>
                   <a
-                    href="mailto:admin@kclick.co?subject=Documents KYC — Vérification boutique"
+                    href="mailto:ecommerce@kennysinternational.com?subject=Documents KYC — Vérification boutique"
                     className="flex items-center gap-2 text-sm font-bold text-kclick-orange hover:underline"
                   >
                     <Mail size={14} />
-                    admin@kclick.co
+                    ecommerce@kennysinternational.com
                   </a>
                 </div>
               </div>
