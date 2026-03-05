@@ -105,7 +105,7 @@ export default function LandingPage() {
                             </p>
                             <div className="flex flex-wrap gap-4">
                                 <Link
-                                    to={user ? '/portal' : '/login'}
+                                    to={user ? '/' : '/login'}
                                     className="bg-kclick-orange text-white px-8 py-4 rounded-2xl text-base font-bold hover:shadow-glow-orange transition-all duration-300 hover:scale-105 flex items-center gap-2"
                                 >
                                     Commencer maintenant
@@ -353,8 +353,8 @@ export default function LandingPage() {
                         <div>
                             <h4 className="font-bold text-white mb-4">Contact</h4>
                             <ul className="space-y-3 text-sm text-gray-400">
-                                <li>📧 contact@kclick.co</li>
-                                <li>📞 +243 XXX XXX XXX</li>
+                                <li>📧 ecommerce@kennysinternational.com</li>
+                                <li>📞 +243822545449</li>
                                 <li>📍 Kinshasa, RD Congo</li>
                             </ul>
                         </div>
