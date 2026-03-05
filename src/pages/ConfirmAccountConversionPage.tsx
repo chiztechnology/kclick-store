@@ -10,12 +10,15 @@ export default function ConfirmAccountConversionPage() {
 
   const handleStartConversion = async () => {
     if (!user) return;
-    setLoading(true);
-    const { error } = await convertToSeller(user.email);
-    if(error) {
+    try {
+      setLoading(true);
+      await convertToSeller(user.email);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error('Error converting account:', error);
       alert('Une erreur est survenue lors de la conversion de votre compte. Veuillez réessayer plus tard.');
     }
-    setLoading(false);
   }
 
 

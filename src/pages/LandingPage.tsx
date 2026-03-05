@@ -4,6 +4,7 @@ import phoneMockup from '/assets/ecommerce - presentation screenshot.png';
 import qrPlaystore from '/assets/qrcode-sample.png';
 import qrAppstore from '/assets/qrcode-sample.png';
 import { ECOMMERCE_URL } from '../apps/business/pages/BusinessStoreDashboard';
+import { useAuth } from '../context/AuthContext';
 
 const stats = [
     { value: '2,500+', label: 'Boutiques actives', icon: Store },
@@ -53,6 +54,7 @@ const howItWorks = [
 ];
 
 export default function LandingPage() {
+    const { user } = useAuth()
     return (
         <div className="min-h-screen bg-white">
             {/* Navigation */}
@@ -66,7 +68,7 @@ export default function LandingPage() {
                             <a href="#features" className="hover:text-kclick-orange transition-colors">Fonctionnalités</a>
                             <a href="#how-it-works" className="hover:text-kclick-orange transition-colors">Comment ça marche</a>
                             <a href="#download" className="hover:text-kclick-orange transition-colors">Télécharger</a>
-                            <Link to="/login" className="hover:text-kclick-orange transition-colors">Connexion</Link>
+                            <Link to={user ? '/' : '/login'} className="hover:text-kclick-orange transition-colors">Connexion</Link>
                         </div>
                         <Link
                             to="/confirm-account-conversion"
@@ -103,7 +105,7 @@ export default function LandingPage() {
                             </p>
                             <div className="flex flex-wrap gap-4">
                                 <Link
-                                    to="/login"
+                                    to={user ? '/portal' : '/login'}
                                     className="bg-kclick-orange text-white px-8 py-4 rounded-2xl text-base font-bold hover:shadow-glow-orange transition-all duration-300 hover:scale-105 flex items-center gap-2"
                                 >
                                     Commencer maintenant
