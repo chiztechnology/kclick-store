@@ -18,7 +18,7 @@ interface StoreForm {
   address: string;
   city: string;
   logo_url: string;
-  cover_url: string;
+  cover_image_url: string;
 }
 
 const CITIES = ['Kinshasa', 'Lubumbashi', 'Goma', 'Bukavu', 'Kisangani', 'Mbuji-Mayi', 'Kananga', 'Matadi', 'Boma', 'Autre'];
@@ -34,7 +34,7 @@ export default function CreateStorePage() {
     address: '',
     city: 'Kinshasa',
     logo_url: '',
-    cover_url: '',
+    cover_image_url: '',
   });
   const [saving, setSaving] = useState(false);
   const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
@@ -64,7 +64,7 @@ export default function CreateStorePage() {
 
   const handleSubmit = async () => {
     if (!form.name.trim()) { notify('Le nom de la boutique est requis', 'error'); return; }
-    if (!form.cover_url) { notify("L'image de couverture est requise", 'error'); return; }
+    if (!form.cover_image_url) { notify("L'image de couverture est requise", 'error'); return; }
 
     setSaving(true);
     try {
@@ -75,8 +75,8 @@ export default function CreateStorePage() {
         email: form.email || user?.email,
         address: form.address,
         city: form.city,
-        logo_url: form.logo_url || null,
-        cover_url: form.cover_url,
+        logo_url: form.logo_url || '',
+        cover_image_url: form.cover_image_url,
         owner_id: user?.id,
         is_active: false,
         is_verified: false,
@@ -288,8 +288,8 @@ export default function CreateStorePage() {
                 />
                 <ImageUpload
                   label="Image de couverture *"
-                  value={form.cover_url}
-                  onChange={url => set({ cover_url: url || '' })}
+                  value={form.cover_image_url}
+                  onChange={url => set({ cover_image_url: url || '' })}
                   onUpload={file => handleUploadImage(file, 'cover')}
                 />
               </div>
@@ -349,7 +349,7 @@ export default function CreateStorePage() {
                 </div>
                 <button
                   onClick={handleSubmit}
-                  disabled={saving || !form.name.trim() || !form.cover_url}
+                  disabled={saving || !form.name.trim() || !form.cover_image_url}
                   className="w-full flex items-center justify-center gap-2 bg-kclick-orange hover:bg-kclick-orange-dark disabled:bg-gray-300 text-white font-bold py-3.5 rounded-xl transition-colors"
                 >
                   {saving ? (

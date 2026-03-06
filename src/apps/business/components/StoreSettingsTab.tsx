@@ -20,7 +20,7 @@ export default function StoreSettingsTab({ store, userId, onRefresh, showNotific
   const [shippingPolicy, setShippingPolicy] = useState(store.shipping_policy || '');
   const [returnPolicy, setReturnPolicy] = useState(store.return_policy || '');
   const [logoUrl, setLogoUrl] = useState(store.logo_url || '');
-  const [coverUrl, setCoverUrl] = useState(store.cover_url || '');
+  const [coverUrl, setCoverUrl] = useState(store.cover_image_url || '');
   const [saving, setSaving] = useState(false);
   const [uploadingLogo, setUploadingLogo] = useState(false);
   const [uploadingCover, setUploadingCover] = useState(false);
@@ -74,7 +74,7 @@ export default function StoreSettingsTab({ store, userId, onRefresh, showNotific
       if (shippingPolicy !== (store.shipping_policy || '')) updates.shipping_policy = shippingPolicy;
       if (returnPolicy !== (store.return_policy || '')) updates.return_policy = returnPolicy;
       if (logoUrl !== (store.logo_url || '')) updates.logo_url = logoUrl;
-      if (coverUrl !== (store.cover_url || '')) updates.cover_url = coverUrl;
+      if (coverUrl !== (store.cover_image_url || '')) updates.cover_image_url = coverUrl;
 
       if (Object.keys(updates).length === 0) {
         showNotification('Aucune modification detectee');
